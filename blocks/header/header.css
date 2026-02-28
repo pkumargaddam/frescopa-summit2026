@@ -43,6 +43,7 @@ header nav[aria-expanded='true'] {
     gap: 0 32px;
     max-width: 1264px;
     padding: 0 32px;
+    height: auto;
   }
 
   header nav[aria-expanded='true'] {
@@ -178,6 +179,10 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 }
 
 @media (width >= 900px) {
+  header .nav-brand {
+    padding: 20px 0;
+  }
+
   header nav .nav-hamburger {
     display: none;
     visibility: hidden;

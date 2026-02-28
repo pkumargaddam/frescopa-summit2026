@@ -1,13 +1,13 @@
 footer {
-  background-color: #f5ebe0;
+  background-color: #f0e0d2;
   font-size: 13px;
   color: #8b593d;
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: 1360px;
+  padding: 50px 24px 25px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px 0;
@@ -31,6 +31,7 @@ footer .footer > div > .section:first-child p strong {
 
 footer .footer > div > .section:first-child p em {
   font-style: italic;
+  color: #58181d;
 }
 
 /* link column sections (sections 2-6) */
@@ -39,7 +40,7 @@ footer .footer > div > .section:not(:first-child, :last-child) p {
 }
 
 footer .footer > div > .section:not(:first-child, :last-child) p:first-child {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 footer .footer > div > .section:not(:first-child, :last-child) p:first-child strong {
@@ -64,7 +65,7 @@ footer .footer > div > .section:last-child .default-content-wrapper {
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 50px 32px 25px;
     grid-template-columns: 1.5fr repeat(5, 1fr);
     gap: 32px 24px;
   }

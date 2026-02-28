@@ -5,7 +5,9 @@
 *Smiles one cup at a time.*
 
 3900 Adobe Way, Lehi, UT 84043
+
 info@frescopa.com
+
 (385) 345-0000
 
 ---
