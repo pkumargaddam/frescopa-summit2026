@@ -14,6 +14,3 @@ Free shipping from $35 & Free coffee samples with code frescopa.
 - [Accessories](/content/us/en/accessories)
 - [Locations](/content/us/en/locations)
 - [Sustainability](/content/us/en/sustainability)
-
----
-
