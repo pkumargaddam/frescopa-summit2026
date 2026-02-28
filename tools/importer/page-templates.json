@@ -1,0 +1,33 @@
+{
+  "templates": [
+    {
+      "name": "frescopa-homepage",
+      "urls": [
+        "https://publish-p45403-e1547974.adobeaemcloud.com/us/en.html"
+      ],
+      "description": "Frescopa homepage template with hero, banner, location finder, product cards, and promotional offer sections",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            ".teaser:first-child .cmp-teaser",
+            ".contentfragment.cfoffer"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            ".frescopa-banner",
+            ".location-finder"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            ".container.flexcolummns"
+          ]
+        }
+      ]
+    }
+  ]
+}
