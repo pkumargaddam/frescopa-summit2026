@@ -37,7 +37,9 @@ header nav[aria-expanded='true'] {
 
   header nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     gap: 0 32px;
     max-width: 1264px;
     padding: 0 32px;
@@ -56,6 +58,49 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+}
+
+/* promo banner */
+header nav .nav-promo {
+  display: none;
+}
+
+@media (width >= 900px) {
+  header nav .nav-promo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a03532;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 8px 32px;
+    margin: 0 -32px;
+    flex: 0 0 calc(100% + 64px);
+    letter-spacing: 0.5px;
+  }
+
+  header nav .nav-promo .default-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  header nav .nav-promo p {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  header nav .nav-promo a:any-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  header nav .nav-promo a:hover {
+    text-decoration: underline;
+  }
 }
 
 /* hamburger */
@@ -142,14 +187,14 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
+  flex-basis: 180px;
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 180px;
   height: auto;
 }
 
@@ -170,7 +215,7 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: 15px;
 }
 
 header nav .nav-sections ul > li {
@@ -183,6 +228,15 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+}
+
+header nav .nav-sections a:any-link {
+  color: #58181d;
+  text-decoration: none;
+}
+
+header nav .nav-sections a:hover {
+  text-decoration: underline;
 }
 
 @media (width >= 900px) {

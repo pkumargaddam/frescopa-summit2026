@@ -1,20 +1,75 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: #f5ebe0;
+  font-size: 13px;
+  color: #8b593d;
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
   padding: 40px 24px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px 0;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* company info section (first section) */
+footer .footer > div > .section:first-child img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+footer .footer > div > .section:first-child p strong {
+  color: #58181d;
+  font-size: 15px;
+}
+
+footer .footer > div > .section:first-child p em {
+  font-style: italic;
+}
+
+/* link column sections (sections 2-6) */
+footer .footer > div > .section:not(:first-child, :last-child) p {
+  line-height: 2;
+}
+
+footer .footer > div > .section:not(:first-child, :last-child) p:first-child {
+  margin-bottom: 8px;
+}
+
+footer .footer > div > .section:not(:first-child, :last-child) p:first-child strong {
+  color: #58181d;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* copyright section (last section) */
+footer .footer > div > .section:last-child {
+  border-top: 1px solid #d4c4b0;
+  padding-top: 16px;
+  grid-column: 1 / -1;
+}
+
+footer .footer > div > .section:last-child .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
+    grid-template-columns: 1.5fr repeat(5, 1fr);
+    gap: 32px 24px;
+  }
+
+  footer .footer > div > .section:last-child {
+    grid-column: 1 / -1;
   }
 }
