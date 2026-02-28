@@ -1,3 +1,15 @@
+/* Override section dark styling - block handles its own colors */
+main .section.dark.location-finder-container > div {
+  background-color: transparent;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0;
+}
+
+main .section.dark.location-finder-container {
+  color: inherit;
+}
+
 /* location finder block */
 .location-finder {
   display: flex;
