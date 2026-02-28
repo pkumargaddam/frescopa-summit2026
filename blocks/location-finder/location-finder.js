@@ -1,4 +1,9 @@
-const API_URL = 'https://compute-backend-p45403-e1547974-first-compute.adobeaemcloud.com/compute/frescopa-locations';
+const COMPUTE_BACKEND = 'https://compute-backend-p45403-e1547974-first-compute.adobeaemcloud.com/compute/frescopa-locations';
+const LOCAL_PROXY = 'http://localhost:3001/api/frescopa-locations';
+
+function getApiUrl() {
+  return window.location.hostname === 'localhost' ? LOCAL_PROXY : COMPUTE_BACKEND;
+}
 
 function createSearchForm() {
   const form = document.createElement('div');
@@ -206,7 +211,7 @@ export default async function decorate(block) {
     status.textContent = '';
 
     try {
-      const resp = await fetch(`${API_URL}?zipcode=${encodeURIComponent(zipcode)}`);
+      const resp = await fetch(`${getApiUrl()}?zipcode=${encodeURIComponent(zipcode)}`);
       if (!resp.ok) throw new Error(`Request failed: ${resp.status}`);
       const data = await resp.json();
       showPopup(block, data);
