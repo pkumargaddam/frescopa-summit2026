@@ -14,7 +14,7 @@ info@frescopa.com
 
 **Machines**
 
-Espresso Machines
+Espresso MachineZZ
 
 Fréscopa Major
 
