@@ -11,7 +11,7 @@ function createSearchForm() {
 
   const input = document.createElement('input');
   input.type = 'text';
-  input.placeholder = 'Enter zipcode';
+  input.placeholder = 'Zip code';
   input.className = 'location-finder-input';
   input.maxLength = 10;
   input.setAttribute('aria-label', 'Enter zipcode to find locations');
@@ -210,21 +210,40 @@ export default async function decorate(block) {
   // Rebuild block
   block.textContent = '';
 
-  const content = document.createElement('div');
-  content.className = 'location-finder-content';
+  // Left panel - search content
+  const panel = document.createElement('div');
+  panel.className = 'location-finder-panel';
 
   const h2 = document.createElement('h2');
   h2.textContent = headingText;
-  content.append(h2);
+  panel.append(h2);
+
+  const label = document.createElement('p');
+  label.className = 'location-finder-label';
+  label.textContent = 'Find a Location NOW';
+  panel.append(label);
 
   const searchForm = createSearchForm();
-  content.append(searchForm);
+  panel.append(searchForm);
 
   const status = document.createElement('div');
   status.className = 'location-finder-status';
-  content.append(status);
+  panel.append(status);
 
-  block.append(content);
+  // Right panel - map placeholder
+  const mapPanel = document.createElement('div');
+  mapPanel.className = 'location-finder-map';
+  mapPanel.innerHTML = `
+    <div class="location-finder-map-placeholder">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+      <span>Map View</span>
+    </div>
+  `;
+
+  block.append(panel, mapPanel);
 
   // Search handler
   const input = searchForm.querySelector('.location-finder-input');
