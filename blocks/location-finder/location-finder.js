@@ -25,7 +25,24 @@ function createSearchForm() {
   return form;
 }
 
-function createLocationCard(location) {
+function parseTimeToMinutes(timeStr) {
+  const match = timeStr.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!match) return -1;
+  let hours = parseInt(match[1], 10);
+  const minutes = parseInt(match[2], 10);
+  const period = match[3].toUpperCase();
+  if (period === 'AM' && hours === 12) hours = 0;
+  else if (period === 'PM' && hours !== 12) hours += 12;
+  return hours * 60 + minutes;
+}
+
+function getFutureTimes(times) {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  return times.filter((time) => parseTimeToMinutes(time) > currentMinutes);
+}
+
+function createLocationCard(location, futureTimes) {
   const card = document.createElement('div');
   card.className = 'location-card';
 
@@ -39,24 +56,29 @@ function createLocationCard(location) {
 
   const times = document.createElement('div');
   times.className = 'location-times';
-  times.innerHTML = '<p class="times-label">Available times:</p>';
 
-  const timesGrid = document.createElement('div');
-  timesGrid.className = 'times-grid';
+  if (futureTimes.length === 0) {
+    times.innerHTML = '<p class="times-label">No more slots available today</p>';
+  } else {
+    times.innerHTML = '<p class="times-label">Available times:</p>';
+    const timesGrid = document.createElement('div');
+    timesGrid.className = 'times-grid';
 
-  location.times.forEach((time) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'time-slot';
-    btn.textContent = time;
-    btn.dataset.locationId = location.id;
-    btn.dataset.locationName = location.name;
-    btn.dataset.locationAddress = location.address;
-    btn.dataset.time = time;
-    timesGrid.append(btn);
-  });
+    futureTimes.forEach((time) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'time-slot';
+      btn.textContent = time;
+      btn.dataset.locationId = location.id;
+      btn.dataset.locationName = location.name;
+      btn.dataset.locationAddress = location.address;
+      btn.dataset.time = time;
+      timesGrid.append(btn);
+    });
 
-  times.append(timesGrid);
+    times.append(timesGrid);
+  }
+
   card.append(info, times);
   return card;
 }
@@ -114,9 +136,18 @@ function showPopup(block, data) {
   if (!data.locations || data.locations.length === 0) {
     body.innerHTML = '<p class="no-results">No locations found for this zipcode. Please try another.</p>';
   } else {
+    let hasAnySlots = false;
     data.locations.forEach((loc) => {
-      body.append(createLocationCard(loc));
+      const futureTimes = getFutureTimes(loc.times);
+      if (futureTimes.length > 0) hasAnySlots = true;
+      body.append(createLocationCard(loc, futureTimes));
     });
+    if (!hasAnySlots) {
+      const note = document.createElement('p');
+      note.className = 'no-results';
+      note.textContent = 'All timeslots for today have passed. Please try again tomorrow.';
+      body.prepend(note);
+    }
   }
 
   const footer = document.createElement('div');
