@@ -332,6 +332,11 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
+  color: var(--text-color);
+}
+
+main .section.light > div,
+main .section.highlight > div {
   background-color: var(--light-color);
   border-radius: 16px;
   overflow: hidden;
@@ -339,8 +344,11 @@ main .section.highlight {
 }
 
 main .section.dark {
-  background-color: #3d2c1e;
   color: white;
+}
+
+main .section.dark > div {
+  background-color: #3d2c1e;
   border-radius: 16px;
   overflow: hidden;
   padding: 40px 32px;
