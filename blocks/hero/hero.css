@@ -1,6 +1,6 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+.hero-container > .hero-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .hero {
@@ -10,9 +10,6 @@
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
   color: var(--background-color);
 }
 

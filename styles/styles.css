@@ -149,7 +149,9 @@ pre {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 24px auto;
+  max-width: 1200px;
+  padding: 0 24px;
 }
 
 input,
@@ -306,13 +308,15 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 24px auto;
+  max-width: 1200px;
+  padding: 0 24px;
 }
 
 main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 main > .section:first-of-type {
@@ -320,7 +324,7 @@ main > .section:first-of-type {
 }
 
 @media (width >= 900px) {
-  main > .section > div {
+  main > .section {
     padding: 0 32px;
   }
 }
@@ -329,15 +333,17 @@ main > .section:first-of-type {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 40px 32px;
 }
 
 main .section.dark {
   background-color: #3d2c1e;
   color: white;
-  margin: 0;
-  padding: 40px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 40px 32px;
 }
 
 main .section.dark h1,

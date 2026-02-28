@@ -1,3 +1,9 @@
+.columns-container > .columns-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--light-color);
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
