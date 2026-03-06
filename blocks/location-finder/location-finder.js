@@ -1,9 +1,4 @@
-const COMPUTE_BACKEND = 'https://compute-backend-p45403-e1547974-first-compute.adobeaemcloud.com/compute/frescopa-locations';
-const LOCAL_PROXY = 'http://localhost:3001/api/frescopa-locations';
-
-function getApiUrl() {
-  return window.location.hostname === 'localhost' ? LOCAL_PROXY : COMPUTE_BACKEND;
-}
+const BOOKING_API = 'https://644509-499copperpiranha-stage.adobeioruntime.net/api/v1/web/dx-excshell-1/cofee-tasting-booking';
 
 function createSearchForm() {
   const form = document.createElement('div');
@@ -261,9 +256,10 @@ export default async function decorate(block) {
     status.textContent = '';
 
     try {
-      const resp = await fetch(`${getApiUrl()}?zipcode=${encodeURIComponent(zipcode)}`);
+      const resp = await fetch(`${BOOKING_API}?zipcode=${encodeURIComponent(zipcode)}`);
       if (!resp.ok) throw new Error(`Request failed: ${resp.status}`);
       const data = await resp.json();
+      console.log('Location API response:', data);
       showPopup(block, data);
     } catch (err) {
       status.textContent = 'Unable to find locations. Please try again.';
