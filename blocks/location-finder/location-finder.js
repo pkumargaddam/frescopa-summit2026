@@ -1,4 +1,4 @@
-const BOOKING_API = 'https://644509-499copperpiranha-stage.adobeioruntime.net/api/v1/web/dx-excshell-1/cofee-tasting-booking';
+const BOOKING_API = 'https://publish-p45403-e1547974.adobeaemcloud.com/compute/coffee-tasting-booking';
 
 function createSearchForm() {
   const form = document.createElement('div');
